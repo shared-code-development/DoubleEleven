@@ -1,3 +1,5 @@
+create database seckill;
+use seckill;
 create table t_user(
     user_id varchar(20) not null PRIMARY key comment '主键',
     user_name varchar(100) comment '用户名',
@@ -5,7 +7,7 @@ create table t_user(
     create_time timestamp comment '创建时间',
     creator varchar(20) comment '创建者',
     update_time timestamp not null ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-    updator varchar(20) not null comment '更新者',
+    updater varchar(20) not null comment '更新者',
     version int(10) not null comment '版本号：乐观锁专用',
     is_del tinyint(1) not null default 0 comment '删除标识： 0-未删除 1-已删除'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -21,7 +23,7 @@ CREATE TABLE t_goods (
       create_time timestamp comment '创建时间',
     creator varchar(20) comment '创建者',
     update_time timestamp not null ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-    updator varchar(20) not null comment '更新者',
+    updater varchar(20) not null comment '更新者',
     version int(10) not null comment '版本号：乐观锁专用',
     is_del tinyint(1) not null default 0 comment '删除标识： 0-未删除 1-已删除'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '商品表';
@@ -33,7 +35,7 @@ CREATE TABLE t_order (
     create_time timestamp comment '创建时间',
     creator varchar(20) comment '创建者',
     update_time timestamp not null ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-    updator varchar(20) not null comment '更新者',
+    updater varchar(20) not null comment '更新者',
     version int(10) not null comment '版本号：乐观锁专用',
     is_del tinyint(1) not null default 0 comment '删除标识： 0-未删除 1-已删除'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '订单记录表';
